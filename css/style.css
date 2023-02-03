@@ -1,0 +1,14 @@
+body{
+    background-color: steelblue;
+}
+
+
+section{
+    margin-top: 400px;
+    background-color: aliceblue;
+}
+
+
+.time{
+    font-size: 2rem;
+}
