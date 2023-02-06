@@ -31,7 +31,7 @@ function myFunction(){
         const seconds = parseInt(totalMilliseconds % 60);
         const minutes = parseInt((totalMilliseconds / 60) % 60);
         const hours = parseInt((totalMilliseconds / 60 / 60) % 24);
-        const days = parseInt((totalMilliseconds / 60 / 60 / 24) % 365);
+        const days = parseInt(totalMilliseconds / 60 / 60 / 24);
 
         secondsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
         minutesEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
