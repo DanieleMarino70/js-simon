@@ -21,17 +21,24 @@ function myFunction(){
     console.log((tomorrow.getTime() - now.getTime()) / 1000);
     totalMilliseconds = ((tomorrow.getTime() - now.getTime()) / 1000);
     
+    if(totalMilliseconds <= 0){
+        clearInterval(future);
+        secondsEl.innerHTML = "00";
+        minutesEl.innerHTML = "00";
+        hoursEl.innerHTML = "00";
+        daysEl.innerHTML = "00";
+    }else{
+        const seconds = parseInt(totalMilliseconds % 60);
+        const minutes = parseInt((totalMilliseconds / 60) % 60);
+        const hours = parseInt((totalMilliseconds / 60 / 60) % 24);
+        const days = parseInt((totalMilliseconds / 60 / 60 / 24) % 365);
+
+        secondsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+        minutesEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        hoursEl.innerHTML = hours < 10 ? "0" + hours : hours;
+        daysEl.innerHTML = days < 10 ? "0" + days : days;
+    } 
 
 
     
-    const seconds = parseInt(totalMilliseconds % 60);
-    const minutes = parseInt((totalMilliseconds / 60) % 60);
-    const hours = parseInt((totalMilliseconds / 60 / 60) % 24);
-    const days = parseInt((totalMilliseconds / 60 / 60 / 24 ) % 365);
-
-    
-    secondsEl.innerHTML = (seconds < 10) ? "0" + seconds : seconds;
-    minutesEl.innerHTML = (minutes < 10) ? "0" + minutes : minutes;
-    hoursEl.innerHTML = (hours < 10) ? "0" + hours : hours;
-    daysEl.innerHTML = (days < 10) ? "0" + days : days;
 }
